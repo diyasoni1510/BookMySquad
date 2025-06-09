@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import homeBg from "../images/homeBg.jpg";
 import { IoSearchSharp } from "react-icons/io5";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import axios from "axios";
@@ -7,6 +6,12 @@ import { FaLocationDot } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import vendor1 from "../images/vendor.png";
 import { FaMinus, FaPlus } from "react-icons/fa6";
+import bgImage6 from "../images/bgImage6.jpg";
+import bgImage1 from "../images/bgImage1.jpg";
+import bgImage2 from "../images/bgImage2.png";
+import bgImage3 from "../images/bgImage3.png";
+import bgImage4 from "../images/bgImage4.png";
+import bgImage5 from "../images/bgImage5.png";
 const venues = [
   {
     id: 1,
@@ -24,11 +29,7 @@ const venues = [
   },
 ];
 
-const bgImages = [
-  "https://res.cloudinary.com/dpa029sf1/image/upload/v1749115122/gallery/vendors/kdzshce5xpe4r7x47m56.png",
-  "https://res.cloudinary.com/dpa029sf1/image/upload/v1749123438/gallery/vendors/gjrdvdnemy5krybgjo6g.png",
-  "https://res.cloudinary.com/dpa029sf1/image/upload/v1749041756/Hospitality_poblmh.png",
-];
+const bgImages = [bgImage6, bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
 
 export default function WeddingPage() {
   const [currentBg, setCurrentBg] = useState(0);
@@ -92,7 +93,9 @@ export default function WeddingPage() {
   useEffect(() => {
     const getServices = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/service");
+        const res = await axios.get(
+          "https://api.infinityeventz.in/api/service"
+        );
         setServices(res.data.service);
       } catch (err) {
         console.error("Failed to fetch services", err);
@@ -296,25 +299,7 @@ export default function WeddingPage() {
       {/* Services slider */}
       <section className="min-h-72">
         <div className="p-16 max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="font-bold text-xl">Explore</h3>
-            {/* <div className="flex gap-3">
-              <button
-                onClick={() => scrollServices("left")}
-                className="bg-themeRed p-2 rounded-full shadow hover:bg-red-700 text-white"
-                aria-label="Scroll Left"
-              >
-                <RiArrowLeftSLine />
-              </button>
-              <button
-                onClick={() => scrollServices("right")}
-                className="bg-themeRed p-2 rounded-full shadow hover:bg-red-700 text-white"
-                aria-label="Scroll Right"
-              >
-                <RiArrowRightSLine />
-              </button>
-            </div> */}
-          </div>
+          <h3 className="mb-4">All Categories</h3>
 
           <div
             ref={servicesRef}
@@ -328,7 +313,7 @@ export default function WeddingPage() {
                 <img
                   src={cat.imageUrl}
                   alt={cat.name}
-                  className="w-16 h-16 object-cover rounded-tl-3xl rounded-br-3xl border-2 border-transparent group-hover:border-gray-600 transition"
+                  className="w-28 h-28 object-cover rounded-tl-3xl rounded-br-3xl border-2 border-transparent group-hover:scale-105 transition"
                 />
                 <p className="mt-2 group-hover:font-semibold">{cat.name}</p>
               </div>
@@ -337,17 +322,17 @@ export default function WeddingPage() {
           <div className="w-full relative">
             <button
               onClick={() => scrollServices("left")}
-              className="bg-themeRed p-2 rounded-full shadow hover:bg-red-700 text-white absolute -top-[80px] left-0"
+              className="bg-[#FDF0F0] p-2 rounded-full shadow hover:bg-red-200 text-white absolute -top-[105px] left-0"
               aria-label="Scroll Left"
             >
-              <RiArrowLeftSLine />
+              <RiArrowLeftSLine color="#C00808" />
             </button>
             <button
               onClick={() => scrollServices("right")}
-              className="bg-themeRed p-2 rounded-full shadow hover:bg-red-700 text-white absolute  -top-[80px] right-0"
+              className="bg-[#FDF0F0] p-2 rounded-full shadow hover:bg-red-200 text-white absolute  -top-[105px] right-0"
               aria-label="Scroll Right"
             >
-              <RiArrowRightSLine />
+              <RiArrowRightSLine color="#C00808" />
             </button>
           </div>
         </div>

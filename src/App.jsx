@@ -1,5 +1,5 @@
 import React from "react";
-// import Home from "./Pages/Home";
+import Home from "./Pages/Home";
 import AdminLogin from "./admin/AdminLogin";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminDashboard from "./admin/AdminDashboard";
@@ -13,6 +13,7 @@ const App = () => {
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/" element={<Home2 />} />
+          <Route path="/services" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>

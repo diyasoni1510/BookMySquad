@@ -21,12 +21,15 @@ import featureVendor2 from "../images/featureVendor2.png";
 import featureVendor3 from "../images/featureVendor3.png";
 import featureVendor4 from "../images/featureVendor4.png";
 import SideArrow from "../components/SideArrow";
+import Footer from "../components/Footer";
+import bgImage6 from "../images/bgImage6.jpg";
+import bgImage1 from "../images/bgImage1.jpg";
+import bgImage2 from "../images/bgImage2.png";
+import bgImage3 from "../images/bgImage3.png";
+import bgImage4 from "../images/bgImage4.png";
+import bgImage5 from "../images/bgImage5.png";
 
-const bgImages = [
-  "https://res.cloudinary.com/dpa029sf1/image/upload/v1749115122/gallery/vendors/kdzshce5xpe4r7x47m56.png",
-  "https://res.cloudinary.com/dpa029sf1/image/upload/v1749123438/gallery/vendors/gjrdvdnemy5krybgjo6g.png",
-  "https://res.cloudinary.com/dpa029sf1/image/upload/v1749041756/Hospitality_poblmh.png",
-];
+const bgImages = [bgImage6, bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
 
 export default function Home2() {
   const [currentBg, setCurrentBg] = useState(0);
@@ -168,22 +171,31 @@ export default function Home2() {
         </div>
       )}
 
-      <header className="shadow-lg bg-white px-16 py-3">
-        <div className="flex items-center justify-center gap-10">
-          <div className="bg-pink-200 rounded-full px-2 text-xs py-4">LOGO</div>
-          <div>
-            <ul className="flex items-center justify-center gap-5">
-              <li>Home</li>
-              <li className="font-semibold">Venues</li>
-              <li>Vendors</li>
-            </ul>
+      <header className=" bg-white px-16 py-3">
+        <div className="flex items-center justify-between gap-10">
+          <div className="flex items-center gap-10">
+            <div className="bg-pink-200 rounded-full px-2 text-xs py-4">
+              LOGO
+            </div>
+            <div>
+              <ul className="flex items-center justify-center gap-5">
+                <li>Home</li>
+                <li className="font-semibold">Venues</li>
+                <li>Vendors</li>
+              </ul>
+            </div>
           </div>
-          <div
-            className="border min-w-60 rounded-3xl px-5 flex py-2 gap-2 items-center cursor-pointer"
-            onClick={getLocation}
-          >
-            <FaLocationDot color="gray" />{" "}
-            <p>{location.town ? location.town : "Select Location"}</p>
+          <div className="flex justify-center items-center gap-4">
+            <div
+              className="border min-w-60 rounded-3xl px-5 flex py-2 gap-2 items-center cursor-pointer"
+              onClick={getLocation}
+            >
+              <FaLocationDot color="gray" />{" "}
+              <p>{location.town ? location.town : "Select Location"}</p>
+            </div>
+            <button className="bg-themeRed text-white px-5 py-2 uppercase rounded-full text-sm">
+              download the app
+            </button>
           </div>
         </div>
         {/* <button className="bg-themeRed uppercase px-8 text-white font-semibold rounded-3xl text-sm">
@@ -614,6 +626,7 @@ export default function Home2() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
