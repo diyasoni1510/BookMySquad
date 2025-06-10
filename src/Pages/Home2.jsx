@@ -8,10 +8,10 @@ import popularVenue1 from "../images/popularVenue1.png";
 import popularVenue2 from "../images/popularVenue2.png";
 import popularVenue3 from "../images/popularVenue3.png";
 import popularVenue4 from "../images/popularVenue4.png";
-import popularSearch1 from "../images/popularSearch1.png";
-import popularSearch2 from "../images/popularSearch2.png";
-import popularSearch3 from "../images/popularSearch3.png";
-import popularSearch4 from "../images/popularSearch4.png";
+import popularSearch1 from "../images/PopularSearch1.png";
+import popularSearch2 from "../images/PopularSearch2.png";
+import popularSearch3 from "../images/PopularSearch3.png";
+import popularSearch4 from "../images/PopularSearch4.png";
 import exclusiveService1 from "../images/exclusiveService1.png";
 import exclusiveService2 from "../images/exclusiveService2.png";
 import exclusiveService3 from "../images/exclusiveService3.png";
@@ -28,6 +28,7 @@ import bgImage2 from "../images/bgImage2.png";
 import bgImage3 from "../images/bgImage3.png";
 import bgImage4 from "../images/bgImage4.png";
 import bgImage5 from "../images/bgImage5.png";
+import DownloadAppSection from "../components/DownloadApp";
 
 const bgImages = [bgImage6, bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
 
@@ -205,7 +206,7 @@ export default function Home2() {
 
       {/* Background slider */}
       <section
-        className="relative h-[400px] bg-cover bg-no-repeat transition-all duration-1000 ease-in-out"
+        className="relative h-[270px] bg-cover bg-no-repeat transition-all duration-1000 ease-in-out"
         style={{
           backgroundImage: `url(${bgImages[currentBg]})`,
           backgroundPositionY: "-350px",
@@ -226,7 +227,7 @@ export default function Home2() {
         </button>
 
         {/* Hero content */}
-        <div className="absolute bottom-5 bg-themeRed bg-opacity-75 flex flex-col items-center justify-center text-center px-10 pt-10 pb-5 rounded-full w-4/5 left-1/2 transform -translate-x-1/2">
+        <div className="absolute bottom-5 bg-themeRed bg-opacity-75 flex flex-col items-center justify-center text-center px-10 py-3 rounded-full w-4/5 left-1/2 transform -translate-x-1/2">
           <h1 className="text-[45px] font-bold mb-4 dance text-white">
             Plan Your Wedding Easily
           </h1>
@@ -626,6 +627,7 @@ export default function Home2() {
           </div>
         </div>
       </section>
+      {/* <DownloadAppSection /> */}
       <Footer />
     </>
   );
