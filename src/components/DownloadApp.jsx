@@ -1,60 +1,50 @@
-import React from "react";
-import { FaHeart, FaGift, FaSave } from "react-icons/fa";
-import { FaApple, FaAndroid } from "react-icons/fa6";
-
+import { FaHeart } from "react-icons/fa";
+import { HiLightBulb } from "react-icons/hi";
+import { FaGift } from "react-icons/fa6";
+import { FaApple } from "react-icons/fa";
+import { AiFillAndroid } from "react-icons/ai";
+import logo from "../images/bookMySquad-logo.png";
 const DownloadAppSection = () => {
   return (
-    <section className="bg-gradient-to-r from-[#3d0c0c] to-black rounded-xl py-12 px-6 md:px-20 text-white flex flex-col md:flex-row justify-between items-center gap-10">
-      {/* Left Content */}
-      <div className="flex-1">
-        <h2 className="text-2xl md:text-4xl font-bold mb-4">
-          Download The BookMySquad Mobile App Today!
-        </h2>
-
-        <div className="flex gap-6 text-sm md:text-base text-red-300 mb-6">
-          <div className="flex items-center gap-1">
-            <FaHeart className="text-red-400" /> Shortlist Vendors
+    <section className="p-16  mx-auto relative">
+      <div className="flex justify-center items-center h-[500px]">
+        <div className="download-section-left w-1/2 h-full"></div>
+        <div className="download-section-right w-1/2 h-full"></div>
+      </div>
+      <div className="absolute top-16 left-1/2 transform -translate-x-1/2 py-16 text-white">
+        <h4>Download The BookMySquad Mobile App Today!</h4>
+        <div className="flex gap-5 text-[#FE4A4A] items-center justify-center mt-5">
+          <div className="flex gap-1 items-center">
+            <FaHeart />
+            <span>Shortlist Vendors</span>
           </div>
-          <div className="flex items-center gap-1">
-            <FaSave className="text-red-400" /> Save Wedding Ideas
+          <div className="flex gap-1 items-center">
+            <HiLightBulb />
+            <span>Save Wedding Ideas</span>
           </div>
-          <div className="flex items-center gap-1">
-            <FaGift className="text-red-400" /> Get Free Wedding Checklist
+          <div className="flex gap-1 items-center">
+            <FaGift />
+            <span>Get Free Wedding Checklist</span>
           </div>
         </div>
-
-        <p className="mb-4 text-gray-200">
-          You will receive an SMS with a link to download the app
-        </p>
-
-        <div className="flex gap-2 items-center mb-4">
-          <span className="text-lg">91+</span>
-          <input
-            type="text"
-            placeholder="Enter phone number"
-            className="bg-white text-black px-4 py-2 rounded-md outline-none w-full max-w-sm"
-          />
-        </div>
-
-        <button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full transition duration-300">
-          DOWNLOAD THE APP
-        </button>
-
-        <div className="flex gap-4 mt-4 text-2xl">
-          <FaApple />
-          <FaAndroid />
+        <div className="mt-20 text-gray-800 text-center flex flex-col justify-center items-center">
+          <p>You will receive an SMS with a link to download the app</p>
+          <div className="w-fit border-b-2 border-white mt-5">
+            <span>+91</span>
+            <input type="text" className="w-42 bg-transparent" />
+          </div>
+          <button className="bg-[#C00808] px-10 py-2 text-white uppercase text-sm mt-10 rounded-full">
+            Download the app
+          </button>
+          <div className="flex gap-2 justify-center items-center mt-10">
+            <FaApple size={24} />
+            <AiFillAndroid size={24} />
+          </div>
         </div>
       </div>
-
-      {/* Right Phone Image */}
-      <div className="flex-1 flex justify-center">
-        <div className="bg-white rounded-[2rem] p-4 w-[180px] h-[360px] flex items-center justify-center shadow-xl">
-          <img
-            src="/logo512.png" // Replace with actual app logo or phone mockup
-            alt="BookMySquad App"
-            className="h-20"
-          />
-        </div>
+      <div className="absolute right-44 top-44 w-36 h-80 bg-white flex justify-center items-center rounded-xl">
+        <div className="bg-gray-700 w-5 h-5 absolute top-1 left-1/2 -translate-x-1/2 rounded-full"></div>
+        <img src={logo} alt="" width={70} className="" />
       </div>
     </section>
   );

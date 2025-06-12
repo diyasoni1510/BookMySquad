@@ -298,7 +298,7 @@ export default function WeddingPage() {
 
       {/* Services slider */}
       <section className="min-h-72">
-        <div className="p-16 max-w-7xl mx-auto">
+        <div className="p-16  mx-auto">
           <h3 className="mb-4">All Categories</h3>
 
           <div
@@ -338,7 +338,7 @@ export default function WeddingPage() {
         </div>
       </section>
 
-      <section className="p-16 max-w-7xl flex gap-4 items-start">
+      <section className="p-16  flex gap-4 items-start">
         <aside className="w-64 bg-white shadow-md">
           <div className="venue-type">
             <div

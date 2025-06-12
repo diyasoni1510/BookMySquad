@@ -77,3 +77,74 @@ h6 {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.tube-section {
+  position: relative;
+  background: #1b0000;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: black;
+  font-family: sans-serif;
+}
+
+.tube-light {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(255, 255, 255, 0.4),
+    transparent 70%
+  );
+  filter: blur(30px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.tube-light.left {
+  left: 0;
+}
+
+.tube-light.right {
+  right: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px 30px;
+  border-radius: 8px;
+  color: #111;
+}
+
+.download-section-left {
+  background: conic-gradient(
+    from 90deg at 50% 38%,
+    #f5dddd 0deg,
+    #210101 151.38deg,
+    #141414 360deg
+  );
+  /* width: 583px; */
+  /* height: 715px; */
+  top: -195px;
+}
+.download-section-right {
+  background: conic-gradient(
+    from 90deg at 50% 38%,
+    #f5dddd 0deg,
+    #210101 151.38deg,
+    #141414 360deg
+  );
+  /* width: 574px;
+  height: 715px; */
+  /* transform: rotate(-180deg); */
+  transform: scaleX(-1);
+
+  top: -195px;
+  left: 1157px;
+}

@@ -69,7 +69,7 @@ export default function Home2() {
       <Header />
       {/* Services slider */}
       <section className="min-h-72">
-        <div className="p-16 max-w-7xl mx-auto">
+        <div className="p-16  mx-auto">
           <h3 className="mb-4">All Categories</h3>
 
           <div
@@ -109,7 +109,7 @@ export default function Home2() {
         </div>
       </section>
 
-      <section className="p-16 max-w-7xl mx-auto">
+      <section className="p-16  mx-auto">
         <div className="flex gap-4 items-center">
           <h3 className="mb-4">Popular Venues Search</h3>
           <SideArrow />
@@ -186,48 +186,56 @@ export default function Home2() {
         </div>
       </section>
 
-      <section className="p-16 max-w-7xl mx-auto">
+      <section className="p-16  mx-auto">
         <div className="flex gap-4 items-center">
           <h3 className="mb-4">Popular Search</h3>
           <SideArrow />
         </div>
         <div className="grid grid-cols-4 gap-5 mt-5">
-          <div className="col-span-1">
+          <div className="col-span-1 relative h-fit">
             <img
               src={popularSearch1}
               alt=""
               className="rounded-lg h-64 object-cover w-full"
             />
-            <h5 className="mt-3">Photographer</h5>
+            <h5 className="mt-3 absolute w-full bottom-0 backdrop-blur-lg bg-white/20 text-white p-2">
+              Photographer
+            </h5>
           </div>
-          <div className="col-span-1">
+          <div className="col-span-1 relative h-fit">
             <img
               src={popularSearch2}
               alt=""
               className="rounded-lg h-64 object-cover w-full"
             />
-            <h5 className="mt-3">Invitations Card</h5>
+            <h5 className="mt-3 absolute w-full bottom-0 backdrop-blur-lg bg-white/20 text-white p-2">
+              Invitations Card
+            </h5>
           </div>
-          <div className="col-span-1">
+          <div className="col-span-1 relative h-fit">
             <img
               src={popularSearch3}
               alt=""
               className="rounded-lg h-64 object-cover w-full"
             />
-            <h5 className="mt-3">Catering Service</h5>
+            <h5 className="mt-3 absolute w-full bottom-0 backdrop-blur-lg bg-white/20 text-white p-2">
+              Catering Service
+            </h5>
           </div>
-          <div className="col-span-1">
+          <div className="col-span-1 relative h-fit">
             <img
               src={popularSearch4}
               alt=""
               className="rounded-lg h-64 object-cover w-full"
             />
-            <h5 className="mt-3">Decorators</h5>
+            <h5 className="mt-3 absolute w-full bottom-0 backdrop-blur-lg bg-white/20 text-white p-2">
+              Decorators
+            </h5>
           </div>
         </div>
       </section>
 
-      <section className="p-16 max-w-7xl mx-auto">
+      <section className="p-16  mx-auto">
         <div className="flex gap-4 items-center">
           <h3 className="mb-4">Exclusive Services by BookMy Squad</h3>
           <SideArrow />
@@ -310,7 +318,7 @@ export default function Home2() {
         </div>
       </section>
 
-      <section className="p-16 max-w-7xl mx-auto">
+      <section className="p-16  mx-auto">
         <div className="flex gap-4 items-center">
           <h3 className="mb-4">Featured Vendors</h3>
           <SideArrow />
@@ -406,7 +414,7 @@ export default function Home2() {
           </div>
         </div>
       </section>
-      {/* <DownloadAppSection /> */}
+      <DownloadAppSection />
       <Footer />
     </>
   );
