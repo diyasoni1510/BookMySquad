@@ -26,9 +26,12 @@ export default function Home2() {
 
   const sendLead = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/lead/save", {
-        phone,
-      });
+      const res = await axios.post(
+        "https://api.infinityeventz.in/api/lead/save",
+        {
+          phone,
+        }
+      );
       setPhone("");
       setShowModal(false);
     } catch (error) {

@@ -4,8 +4,8 @@ import AdminDashboard from "./admin/AdminDashboard";
 import Services from "./Pages/Services";
 import VendorPage from "./Pages/VendorPage";
 
-// export const apiUrl = "https://api.infinityeventz.in";
-export const apiUrl = "http://localhost:5000";
+export const apiUrl = "https://api.infinityeventz.in";
+// export const apiUrl = "http://localhost:5000";
 
 const App = () => {
   return (

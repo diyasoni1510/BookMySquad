@@ -31,7 +31,9 @@ const AddVendor = () => {
   useEffect(() => {
     const getServices = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/service");
+        const res = await axios.get(
+          "https://api.infinityeventz.in/api/service"
+        );
         setServices(res.data.service);
       } catch (err) {
         console.error("Failed to fetch services", err);
@@ -45,7 +47,7 @@ const AddVendor = () => {
     const getSubServices = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/sub-service?service=${selectedService}`
+          `https://api.infinityeventz.in/api/sub-service?service=${selectedService}`
         );
         setSubServices(res.data.subService);
       } catch (err) {
@@ -104,7 +106,7 @@ const AddVendor = () => {
       };
 
       const res = await axios.post(
-        "http://localhost:5000/api/vendor/register",
+        "https://api.infinityeventz.in/api/vendor/register",
         payload
       );
 
