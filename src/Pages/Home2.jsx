@@ -34,6 +34,7 @@ import BannerSection from "../components/Banner";
 import Loader from "../components/Loader";
 import { apiUrl } from "../utils/api";
 import ClickableIcon from "../components/ClickableIcon";
+import { Link } from "react-router-dom";
 
 const bgImages = [bgImage6, bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
 
@@ -146,7 +147,7 @@ export default function Home2() {
               <SideArrow />
             </div>
             <div className="grid grid-cols-4 gap-5 mt-5">
-              <div className="col-span-1">
+              <Link to="/vendor" className="col-span-1">
                 <img
                   src={popularVenue1}
                   alt=""
@@ -162,7 +163,7 @@ export default function Home2() {
                   <p>|</p>
                   <p className="ms-2 text-themeRed">More</p>
                 </div>
-              </div>
+              </Link>
               <div className="col-span-1">
                 <img
                   src={popularVenue2}
@@ -275,13 +276,16 @@ export default function Home2() {
               <div className="col-span-1 flex max-h-52 items-center border rounded overflow-hidden">
                 <div className="p-10 w-1/2">
                   <h6 className="font-semibold">Bridal Glow Services</h6>
-                  <p className="mt-3">
+                  <p className="mt-3 mb-4">
                     In-home makeup, hair, and skincare packages for brides &
                     family.
                   </p>
-                  <button className="rounded-full px-8 hover:bg-themeRed hover:text-white transform duration-200 border border-themeRed py-2 text-themeRed mt-4 uppercase text-sm">
+                  <Link
+                    to="/exclusive"
+                    className="rounded-full px-8 hover:bg-themeRed hover:text-white transform duration-200 border border-themeRed py-2 text-themeRed mt-4 uppercase text-sm"
+                  >
                     Explore looks
-                  </button>
+                  </Link>
                 </div>
                 <div className="h-full w-1/2">
                   <img

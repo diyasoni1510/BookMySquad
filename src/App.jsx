@@ -3,6 +3,7 @@ import Home2 from "./Pages/Home2";
 import AdminDashboard from "./admin/AdminDashboard";
 import Services from "./Pages/Services";
 import VendorPage from "./Pages/VendorPage";
+import Exclusive from "./Pages/Exclusive";
 
 // export const apiUrl = "https://api.infinityeventz.in";
 // // export const apiUrl = "http://localhost:5000";
@@ -16,8 +17,8 @@ const App = () => {
           <Route path="/admin" element={<AdminDashboard />} />
           {/* <Route path="/wedding-venues" element={<Services />} /> */}
           <Route path="/venues" element={<Services />} />
-          <Route path="/vendors" element={<Services />} />
           <Route path="/vendor" element={<VendorPage />} />
+          <Route path="/exclusive" element={<Exclusive />} />
         </Routes>
       </BrowserRouter>
     </>
