@@ -1,18 +1,13 @@
 // top imports
-import React, { useState, useEffect } from "react";
-import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import axios from "axios";
 import { FaLocationDot } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
-import { apiUrl } from "../App";
 import { FiMinus } from "react-icons/fi";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home2() {
-  const [banners, setBanners] = useState([]);
-  const [currentBg, setCurrentBg] = useState(0);
-  const [fadingOut, setFadingOut] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [phone, setPhone] = useState("");
   const [showVenueMenu, setShowVenueMenu] = useState(false);
   const [showVendorMenu, setShowVendorMenu] = useState(false);
@@ -78,39 +73,6 @@ export default function Home2() {
   };
 
   // Fetch banners from API
-  useEffect(() => {
-    const getBanners = async () => {
-      try {
-        const res = await axios.get(`${apiUrl}/api/banner`);
-        setBanners(res.data);
-      } catch (err) {
-        console.error("Failed to fetch banners", err);
-      }
-    };
-    getBanners();
-  }, []);
-
-  // Auto-slide every 4s
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % banners.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [banners]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShowVendorMenu(false);
-      setShowModal(true);
-    }, 4000);
-    getLocation();
-  }, []);
-
-  const nextSlide = () => setCurrentBg((prev) => (prev + 1) % banners.length);
-  const prevSlide = () =>
-    setCurrentBg((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
-
-  const currentBanner = banners[currentBg];
 
   return (
     <>
@@ -158,13 +120,19 @@ export default function Home2() {
               LOGO
             </div>
             <ul className="flex items-center justify-center gap-5">
-              <li>Home</li>
+              {/* <li>Home</li> */}
+              <Link to="/" className="hover:text-themeRed">
+                Home
+              </Link>
               <li
                 className="group flex items-center gap-2 cursor-pointer"
                 onMouseOver={() => setShowVenueMenu(true)}
                 onMouseLeave={() => setShowVenueMenu(false)}
               >
-                <span className="group-hover:text-themeRed">Venues</span>
+                {/* <span className="group-hover:text-themeRed">Venues</span> */}
+                <Link to="/venues" className="group-hover:text-themeRed">
+                  Venues
+                </Link>
                 <IoIosArrowDown className="group-hover:text-themeRed" />
               </li>
               {showVenueMenu && (
@@ -283,70 +251,6 @@ export default function Home2() {
       </header>
 
       {/* Slider Section */}
-      {currentBanner && (
-        <section
-          className="relative h-[270px] bg-cover bg-no-repeat transition-all duration-1000 ease-in-out bg-center"
-          style={{
-            backgroundImage: `url(${currentBanner.image})`,
-            // backgroundPositionY: "-350px",
-          }}
-        >
-          <button
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-200"
-            onClick={prevSlide}
-          >
-            <RiArrowLeftSLine className="text-themeRed" />
-          </button>
-          <button
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-200"
-            onClick={nextSlide}
-          >
-            <RiArrowRightSLine className="text-themeRed" />
-          </button>
-
-          {/* Hero text - Apply fade effect here */}
-          <div
-            className={`absolute bottom-5 bg-themeRed bg-opacity-75 flex flex-col items-center justify-center text-center px-10 py-3 rounded-full w-4/5 left-1/2 transform -translate-x-1/2
-              transition-opacity duration-500 ease-in-out ${
-                fadingOut ? "opacity-0" : "opacity-100"
-              }`}
-          >
-            <h1 className="text-[35px] md:text-[45px] font-bold mb-4 text-white dance">
-              {currentBanner.title || "Plan Your Wedding Easily"}
-            </h1>
-            <p className="mb-6 text-xl text-white">
-              {currentBanner.desc ||
-                "Discover venues, vendors & ideas to create your dream celebration effortlessly."}
-            </p>
-
-            <div className="flex flex-wrap justify-center rounded-br-full rounded-bl-full px-10 overflow-hidden border gap-[1px] bg-white">
-              {["SELECT STATE", "CITY", "SELECT VENUES"].map((label, idx) => (
-                <div key={idx} className="relative inline-block">
-                  <select className="appearance-none w-full px-4 text-black text-sm border-r border-themeRed py-3 pr-10 font-semibold focus-visible:outline-none">
-                    <option>{label}</option>
-                    <option>Rajasthan</option>
-                    <option>Punjab</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center -mt-0">
-                    <IoIosArrowDown color="black" />
-                  </div>
-                </div>
-              ))}
-              <input
-                type="tel"
-                name="phone"
-                placeholder="MOBILE NUMBER*"
-                className="placeholder:text-black text-sm border-r border-themeRed py-3 px-4 focus-visible:outline-none placeholder:font-semibold font-semibold"
-              />
-              <div className="bg-white flex justify-center items-center px-4">
-                <button className="bg-themeRed px-10 py-1 uppercase rounded-full text-white">
-                  Search
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
     </>
   );
 }

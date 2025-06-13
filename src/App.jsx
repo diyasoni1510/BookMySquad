@@ -4,8 +4,8 @@ import AdminDashboard from "./admin/AdminDashboard";
 import Services from "./Pages/Services";
 import VendorPage from "./Pages/VendorPage";
 
-export const apiUrl = "https://api.infinityeventz.in";
-// export const apiUrl = "http://localhost:5000";
+// export const apiUrl = "https://api.infinityeventz.in";
+// // export const apiUrl = "http://localhost:5000";
 
 const App = () => {
   return (
@@ -15,7 +15,8 @@ const App = () => {
           <Route path="/" element={<Home2 />} />
           <Route path="/admin" element={<AdminDashboard />} />
           {/* <Route path="/wedding-venues" element={<Services />} /> */}
-          <Route path="/services/:vendorType" element={<Services />} />
+          <Route path="/venues" element={<Services />} />
+          <Route path="/vendors" element={<Services />} />
           <Route path="/vendor" element={<VendorPage />} />
         </Routes>
       </BrowserRouter>
