@@ -41,7 +41,7 @@ export default function BannerSection({ banners }) {
 
   return (
     <section
-      className="relative h-[270px] bg-cover bg-no-repeat bg-center transition-all duration-1000 ease-in-out"
+      className="relative h-[270px] bg-cover bg-no-repeat bg-center transition-all duration-1000 ease-in"
       style={{
         backgroundImage: `url(${currentBanner.image})`,
       }}

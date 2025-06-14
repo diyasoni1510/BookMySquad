@@ -41,6 +41,7 @@ const bgImages = [bgImage6, bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
 export default function Home2() {
   const [services, setServices] = useState([]);
   const [banners, setBanners] = useState([]);
+  const [exclusives, setExclusives] = useState();
   const [loadingService, setLoadingServices] = useState(true);
   const [loadingBanners, setLoadingBanners] = useState(true);
 
@@ -85,8 +86,22 @@ export default function Home2() {
       }
     };
 
+    const getExclusive = async () => {
+      try {
+        const res = await axios.get(
+          "https://api.infinityeventz.in/api/exclusive"
+        );
+        setExclusives(res.data.exclusives);
+      } catch (err) {
+        console.error("Failed to fetch services", err);
+      } finally {
+        setLoadingServices(false);
+      }
+    };
+
     getServices();
     fetchBanners();
+    getExclusive();
   }, []);
 
   // Scroll services container left or right by fixed width (e.g. 180px per item)
@@ -119,7 +134,11 @@ export default function Home2() {
                 className="flex gap-0 overflow-x-auto scrollbar-hide scroll-smooth relative"
               >
                 {services?.map((cat, index) => (
-                  <ClickableIcon image={cat.imageUrl} name={cat.name} />
+                  <ClickableIcon
+                    image={cat.imageUrl}
+                    name={cat.name}
+                    key={index}
+                  />
                 ))}
               </div>
               <div className="w-full relative">
@@ -273,7 +292,32 @@ export default function Home2() {
               <SideArrow />
             </div>
             <div className="grid grid-cols-2 mt-5 gap-5">
-              <div className="col-span-1 flex max-h-52 items-center border rounded overflow-hidden">
+              {exclusives?.length > 0 &&
+                exclusives?.map((service, index) => (
+                  <div
+                    className="col-span-1 flex max-h-52 items-center border rounded overflow-hidden"
+                    key={index}
+                  >
+                    <div className="p-10 w-1/2">
+                      <h6 className="font-semibold">{service.cardName}</h6>
+                      <p className="mt-3 mb-4">{service.cardText}</p>
+                      <Link
+                        to={`/exclusive/${service._id}`}
+                        className="rounded-full px-8 hover:bg-themeRed hover:text-white transform duration-200 border border-themeRed py-2 text-themeRed mt-4 uppercase text-sm"
+                      >
+                        {service.cardBtn}
+                      </Link>
+                    </div>
+                    <div className="h-full w-1/2">
+                      <img
+                        src={service.cardImage}
+                        alt=""
+                        className="h-full object-cover w-full"
+                      />
+                    </div>
+                  </div>
+                ))}
+              {/* <div className="col-span-1 flex max-h-52 items-center border rounded overflow-hidden">
                 <div className="p-10 w-1/2">
                   <h6 className="font-semibold">Bridal Glow Services</h6>
                   <p className="mt-3 mb-4">
@@ -351,7 +395,7 @@ export default function Home2() {
                     className="h-full object-cover w-full"
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </section>
 

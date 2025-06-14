@@ -18,7 +18,9 @@ const App = () => {
           {/* <Route path="/wedding-venues" element={<Services />} /> */}
           <Route path="/venues" element={<Services />} />
           <Route path="/vendor" element={<VendorPage />} />
-          <Route path="/exclusive" element={<Exclusive />} />
+          {/* <Route path="/exclusive" element={<Exclusive />} /> */}
+          <Route path="/exclusive/:id" element={<Exclusive />} />
+          <Route path="/:service/:type/:city" element={<Services />} />
         </Routes>
       </BrowserRouter>
     </>
